@@ -2,12 +2,13 @@ import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { PackageComponent } from "../package/package.component";
 import { Package } from "../package";
+import { FeatureFlagDirective } from "../feature-flag.directive";
 
 @Component({
   selector: "app-home",
-  imports: [CommonModule, PackageComponent],
+  imports: [CommonModule, PackageComponent, FeatureFlagDirective],
   template: `
-    <section>
+    <section *appFeatureFlag="'search'">
       <form>
         <input type="text" placeholder="Filter by package name" />
         <button class="primary" type="button">Search</button>
